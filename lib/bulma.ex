@@ -38,27 +38,23 @@ defmodule Bulma do
       alias Bulma.Form
 
       alias Bulma.Form.{
+        Checkbox,
         Field,
         HelpText,
         HiddenInput,
+        RadioField,
+        RadioButton,
         Textarea,
         TextInput,
+        Select,
         Submit
       }
 
-      # Checkbox,
       # EmailInput,
-      # Field,
       # FileInput,
-      # Form,
       # HiddenInput,
       # Label,
       # PasswordInput,
-      # Radio,
-      # Select,
-      # Submit,
-      # TextInput,
-      # Textarea,
       # TelephoneInput
       alias Bulma.Layout.{
         Container,
