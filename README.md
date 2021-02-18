@@ -162,9 +162,9 @@ end
    * [X] Dropdown
    * [ ] Menu
    * [X] Message
-   * [ ] Modal
+   * [X] Modal
    * [ ] Navbar
-   * [ ] Pagination
+   * [X] Pagination
    * [X] Panel
    * [X] Tabs
 

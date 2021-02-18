@@ -9,9 +9,10 @@ defmodule Bulma do
         Dropdown,
         Menu,
         Message,
-        # TODO: Modal,
+        Modal,
+        ModalCard,
         # TODO: Navbar,
-        # TODO: Pagination,
+        Pagination,
         Panel,
         Tabs
       }
