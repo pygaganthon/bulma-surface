@@ -1,6 +1,5 @@
 defmodule Bulma.Form.Submit do
   use Bulma.Form.Input
-  import Bulma.Form.Utils
 
   import Phoenix.HTML.Form, only: [submit: 2]
 
@@ -9,14 +8,14 @@ defmodule Bulma.Form.Submit do
   slot default
 
   def render(assigns) do
-    props =
-      get_non_nil_props(assigns, [:value, class: "button"])
-      |> add_is_class(assigns.color)
-
-    event_opts = get_events_to_opts(assigns)
-
     ~H"""
-      {{ submit prop_to_opts(@class, :class) ++ @opts ++ props ++ event_opts, do: ~H"<slot>{{ @label }}</slot>" }}
+      {{ submit opts(assigns), do: ~H"<slot>{{ @label }}</slot>" }}
     """
+  end
+
+  defp opts(assigns) do
+    put_opts_from_props(assigns, [:value])
+    |> put_class_from_props(assigns, "button")
+    |> put_is_classes(assigns, [:color])
   end
 end

@@ -27,6 +27,8 @@ defmodule Bulma.Form.Field do
     """
   end
 
+  defp error_tag(nil, _), do: ""
+
   defp error_tag(form, name) do
     Enum.map(Keyword.get_values(form.errors, name), fn {msg, opts} ->
       error =

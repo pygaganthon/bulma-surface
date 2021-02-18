@@ -1,6 +1,5 @@
 defmodule Bulma.Form.Textarea do
   use Bulma.Form.Input
-  import Bulma.Form.Utils
 
   import Phoenix.HTML.Form, only: [textarea: 3]
 
@@ -8,32 +7,21 @@ defmodule Bulma.Form.Textarea do
   prop fixed_size, :boolean
 
   def render(assigns) do
-    props =
-      get_non_nil_props(assigns, [
-        :value,
-        :placeholder,
-        :rows,
-        :disabled,
-        :readonly,
-        class: "textarea"
-      ])
-      |> add_is_class(assigns.color)
-      |> add_is_class(assigns.size)
-      |> add_bool_class("hovered", assigns.hovered)
-      |> add_bool_class("focused", assigns.focused)
-      |> add_bool_class("loading", assigns.loading)
-      |> add_bool_class("disabled", assigns.disabled)
-      |> add_bool_class("readonly", assigns.readonly)
-      |> add_bool_has_class("fixed-size", assigns.fixed_size)
-
-    event_opts = get_events_to_opts(assigns)
-
     ~H"""
     <Context get={{ form: form, field: field }}>
       <div class={{ "control", @control_class, "is-#{@size}": @size, "is-loading": @loading }} >
-        {{ textarea(form, field, add_invalid_class(props, form, field) ++ @opts ++ event_opts) }}
+        {{ textarea(form, field, opts(assigns, form, field)) }}
       </div>
     </Context>
     """
+  end
+
+  defp opts(assigns, form, field) do
+    put_opts_from_props(assigns, [:value, :placeholder, :rows, :disabled, :readonly])
+    |> put_class_from_props(assigns, "textarea")
+    |> put_is_classes(assigns, [:color, :size])
+    |> put_bool_classes(assigns, [:hovered, :focused, :loading, :disabled, :readonly])
+    |> put_bool_classes(assigns, [:fixed_size], "has")
+    |> put_invalid_class(form, field)
   end
 end

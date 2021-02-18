@@ -42,12 +42,13 @@ defmodule Bulma do
         Field,
         HelpText,
         HiddenInput,
+        MultipleSelect,
         RadioField,
         RadioButton,
-        Textarea,
-        TextInput,
         Select,
-        Submit
+        Submit,
+        Textarea,
+        TextInput
       }
 
       # EmailInput,

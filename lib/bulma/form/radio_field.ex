@@ -15,7 +15,7 @@ defmodule Bulma.Form.RadioField do
           <Context put={{ field: @name ,form: form}}>
             <slot/>
           </Context>
-          {{ error_tag form, @name }}
+          {{ if form do error_tag form, @name end }}
       </Context>
     </div>
     """
