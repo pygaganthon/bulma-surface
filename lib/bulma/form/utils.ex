@@ -13,7 +13,8 @@ defmodule Bulma.Form.Utils do
       Surface.event_to_opts(assigns.keyup, :phx_keyup)
     ]
 
-    (opts ++ event_opts ++ prop_to_opts(assigns, :opts)) |> List.flatten()
+    {_, other_opts} = prop_value(assigns, :opts)
+    (opts ++ event_opts ++ other_opts) |> List.flatten()
   end
 
   def put_class_from_props(opts, assigns, default_class) do

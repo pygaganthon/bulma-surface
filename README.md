@@ -160,7 +160,7 @@ end
    * [X] Breadcrumb
    * [X] Card
    * [X] Dropdown
-   * [ ] Menu
+   * [X] Menu
    * [X] Message
    * [X] Modal
    * [ ] Navbar
