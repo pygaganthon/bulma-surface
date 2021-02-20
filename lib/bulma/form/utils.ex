@@ -1,9 +1,8 @@
 defmodule Bulma.Form.Utils do
   require Surface
-  import Surface, only: [prop_to_opts: 3]
 
-  def put_opts_from_props(assigns, props) do
-    opts = props |> Enum.map(&prop_to_opts(assigns, &1))
+  def put_opts_from_props(module, assigns, props) do
+    opts = props |> Enum.map(&get_opts_from_props(module, assigns, &1))
 
     event_opts = [
       Surface.event_to_opts(assigns.blur, :phx_blur),
@@ -51,12 +50,12 @@ defmodule Bulma.Form.Utils do
     Keyword.put(opts, :class, new_class)
   end
 
-  def prop_to_opts(assigns, prop) do
+  def get_opts_from_props(module, assigns, prop) do
     {key, value} = prop_value(assigns, prop)
-    Surface.prop_to_opts(value, key)
+    module.prop_to_opts(value, key)
   end
 
-  defp prop_value(assigns, prop_item) do
+  def prop_value(assigns, prop_item) do
     case prop_item do
       {prop, default} -> {prop, assigns[prop] || List.wrap(default)}
       prop -> {prop, assigns[prop]}

@@ -17,7 +17,8 @@ defmodule Bulma.Form.Textarea do
   end
 
   defp opts(assigns, form, field) do
-    put_opts_from_props(assigns, [:value, :placeholder, :rows, :disabled, :readonly])
+    __MODULE__
+    |> put_opts_from_props(assigns, [:value, :placeholder, :rows, :disabled, :readonly])
     |> put_class_from_props(assigns, "textarea")
     |> put_is_classes(assigns, [:color, :size])
     |> put_bool_classes(assigns, [:hovered, :focused, :loading, :disabled, :readonly])

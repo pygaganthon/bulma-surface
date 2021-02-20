@@ -19,7 +19,8 @@ defmodule Bulma.Form.Select do
   end
 
   defp opts(assigns, form, field) do
-    put_opts_from_props(assigns, [:value, :placeholder])
+    __MODULE__
+    |> put_opts_from_props(assigns, [:value, :placeholder])
     |> put_class_from_props(assigns, "input")
     |> put_is_classes(assigns, [:color])
     |> put_bool_classes(assigns, [:rounded, :hovered, :focused, :loading, :disabled])

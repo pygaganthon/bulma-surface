@@ -14,7 +14,8 @@ defmodule Bulma.Form.Submit do
   end
 
   defp opts(assigns) do
-    put_opts_from_props(assigns, [:value])
+    __MODULE__
+    |> put_opts_from_props(assigns, [:value])
     |> put_class_from_props(assigns, "button")
     |> put_is_classes(assigns, [:color])
   end

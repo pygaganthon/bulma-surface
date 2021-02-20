@@ -27,7 +27,8 @@ defmodule Bulma.Form.Checkbox do
   end
 
   defp opts(assigns, form, field) do
-    put_opts_from_props(assigns, [:value, :checked_value, :unchecked_value, :disabled])
+    __MODULE__
+    |> put_opts_from_props(assigns, [:value, :checked_value, :unchecked_value, :disabled])
     |> put_class_from_props(assigns, "")
     |> put_is_classes(assigns, [:color])
     |> put_invalid_class(form, field)

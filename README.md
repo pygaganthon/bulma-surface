@@ -119,7 +119,6 @@ end
 
 ## Progress
 
- * [ ] Text utilities
  * [X] Columns/Column
  * Layout
    * [X] Container

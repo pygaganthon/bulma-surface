@@ -41,13 +41,15 @@ defmodule Bulma.Form do
   defp opts(assigns) do
     opts =
       [:as, :method, :multipart, :csrf_token, :errors]
-      |> Enum.map(&Bulma.Form.Utils.prop_to_opts(assigns, &1))
+      |> Enum.map(&Bulma.Form.Utils.get_opts_from_props(__MODULE__, assigns, &1))
 
     event_opts = [
       Surface.event_to_opts(assigns.change, :phx_change),
       Surface.event_to_opts(assigns.submit, :phx_submit)
     ]
 
-    (opts ++ event_opts ++ Bulma.Form.Utils.prop_to_opts(assigns, :opts)) |> List.flatten()
+    (opts ++ event_opts ++ assigns[:opts]) |> List.flatten()
   end
+
+  def prop_to_opts(value, key), do: Surface.prop_to_opts(value, key)
 end

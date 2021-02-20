@@ -35,6 +35,8 @@ defmodule Bulma.Form.Input do
       prop capture_click, :event
       prop keydown, :event
       prop keyup, :event
+
+      def prop_to_opts(value, key), do: Surface.prop_to_opts(value, key)
     end
   end
 end
