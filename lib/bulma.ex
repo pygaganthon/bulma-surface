@@ -26,7 +26,7 @@ defmodule Bulma do
         Delete,
         Icon,
         # TODO: IconText,
-        # TODO: Image,
+        Image,
         Notification,
         ProgressBar,
         Subtitle,

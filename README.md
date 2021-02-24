@@ -119,8 +119,8 @@ end
 
 ## Progress
 
- * [X] Columns/Column
  * Layout
+   * [X] Columns/Column
    * [X] Container
    * [X] Hero
      * [ ] Fullheight
@@ -148,7 +148,7 @@ end
    * [X] Delete
    * [X] Icon
      * [ ] Icon Text
-   * [ ] Image
+   * [X] Image
    * [X] Notification
    * [X] ProgressBar
    * [X] Table

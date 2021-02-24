@@ -37,7 +37,10 @@ defmodule Bulma.Elements.Table do
         </thead>
         <tbody>
           <tr :for={{ item <- @data }}>
-            <td :for.with_index={{ {column, index} <- @columns }} class={{ column.class }}>
+            <td
+              :for.with_index={{ {column, index} <- @columns }}
+              class={{ column.class }}
+              style={{ if column.width_style do "width: #{column.width_style};" else "" end }} >
               <slot name="columns" index={{ index }} :props={{ item: item }}/>
             </td>
           </tr>
